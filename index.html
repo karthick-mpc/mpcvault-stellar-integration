@@ -106,6 +106,27 @@
   }
   .usecase h3 { margin-top: 0; color: #0052FF; }
 
+  .future-box {
+    border: 2px dashed #d97706;
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    background: #fffbeb;
+  }
+  .future-box h3 { margin-top: 0; color: #92400e; }
+  .future-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #d97706;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+  }
+
   .diagram-wrap {
     border: 1px solid #d1d9e0;
     border-radius: 4px;
@@ -149,32 +170,33 @@
   <h1>Stellar Chain Integration into MPCVault</h1>
 </div>
 
-<!-- ══════ 1. EXECUTIVE SUMMARY ══════ -->
+<!-- 1. OVERVIEW -->
 <section>
   <h2>1. Overview</h2>
   <div class="callout">
-    <p>MPCVault is an institutional-grade MPC custody platform. This integration adds native Stellar support so that MPCVault users &mdash; such as <strong>Rang</strong> &mdash; can securely accept and manage payments on the Stellar network, for both XLM and Stellar-issued tokens like USDC.</p>
-    <p>MPCVault's MPC engine already supports Ed25519 natively, which is the same signing curve Stellar uses. No new cryptographic adapter is needed &mdash; Stellar is a natural fit.</p>
+    <p>MPCVault is an institutional-grade MPC custody platform. This integration adds native Stellar support so that MPCVault users can securely accept and manage payments on the Stellar network, for both XLM and Stellar-issued tokens like USDC.</p>
+    <p>MPCVault's MPC engine already supports Ed25519 natively, which is the same signing curve Stellar uses. No new cryptographic adapter is needed, Stellar is a natural fit.</p>
   </div>
 
   <div class="usecase">
     <h3>Use Case: Accepting Payments on Stellar</h3>
-    <p>Businesses using MPCVault (e.g., Rang) need to receive payments from customers and partners on the Stellar network. This integration enables them to:</p>
+    <p>Businesses using MPCVault need to receive payments from customers and partners on the Stellar network. This integration enables them to:</p>
     <ul>
-      <li><strong>Create Stellar accounts</strong> through MPCVault &mdash; secured by MPC, with no single party holding the full private key.</li>
+      <li><strong>Create Stellar accounts</strong> through MPCVault secured by MPC, with no single party holding the full private key.</li>
       <li><strong>Accept XLM and token payments</strong> (USDC, yXLM, etc.) with automatic trustline management.</li>
-      <li><strong>Send payments</strong> with institutional controls &mdash; approval workflows, spending limits, and address allowlists enforced before any transaction is signed.</li>
+      <li><strong>Send payments</strong> with institutional controls like approval workflows, spending limits, and address allowlists enforced before any transaction is signed.</li>
       <li><strong>Interact with Soroban dApps</strong> for DeFi and advanced contract-based payment flows, all from the same MPC-secured account.</li>
+      <li><strong>Convert between fiat and Stellar</strong> via the Anchor Platform like fiat on-ramps (deposit fiat, receive tokens) and off-ramps (redeem tokens for fiat) directly through MPCVault.</li>
       <li><strong>Access everything</strong> via App, Web, API, or browser plugin &mdash; with full transaction history and audit trails.</li>
     </ul>
   </div>
 </section>
 
-<!-- ══════ 2. ARCHITECTURE DIAGRAM ══════ -->
+<!-- 2. ARCHITECTURE DIAGRAM -->
 <section>
   <h2>2. Architecture</h2>
   <div class="diagram-wrap">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 820" width="1100" height="820">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 920" width="1100" height="920">
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#656d76"/>
@@ -182,17 +204,20 @@
     <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#0052FF"/>
     </marker>
+    <marker id="arrowAmber" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d97706"/>
+    </marker>
   </defs>
 
   <text x="550" y="38" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Stellar Chain Integration Architecture</text>
 
   <!-- STELLAR NETWORK (Left) -->
-  <rect x="20" y="65" width="510" height="420" rx="4" fill="none" stroke="#0052FF" stroke-width="2" stroke-dasharray="8,4"/>
+  <rect x="20" y="65" width="510" height="480" rx="4" fill="none" stroke="#0052FF" stroke-width="2" stroke-dasharray="8,4"/>
   <text x="275" y="95" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#0052FF">STELLAR NETWORK</text>
 
   <rect x="45" y="115" width="460" height="55" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
   <text x="275" y="140" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#1a1a2e">Consensus (SCP)</text>
-  <text x="275" y="160" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">~5s finality  |  Federated Byzantine Agreement</text>
+  <text x="275" y="160" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Federated Byzantine Agreement</text>
 
   <rect x="45" y="185" width="220" height="70" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
   <text x="155" y="215" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Classic Operations</text>
@@ -217,8 +242,14 @@
   <rect x="285" y="400" width="220" height="40" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1"/>
   <text x="395" y="425" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">SDKs (JS, Python, Go)</text>
 
+  <!-- Anchor Platform box (inside Stellar Network, dashed border) -->
+  <rect x="45" y="455" width="460" height="75" rx="3" fill="#fffbeb" stroke="#d97706" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="275" y="483" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#92400e">Anchor Platform</text>
+  <text x="275" y="503" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#92400e">Fiat On/Off-Ramp  |  SEP-6, SEP-24, SEP-31</text>
+  <text x="275" y="520" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="11" fill="#a16207">Deposit fiat &#8594; tokens  |  Redeem tokens &#8594; fiat  |  Cross-border payments</text>
+
   <!-- MPCVAULT PLATFORM (Right) -->
-  <rect x="570" y="65" width="510" height="420" rx="4" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-dasharray="8,4"/>
+  <rect x="570" y="65" width="510" height="480" rx="4" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-dasharray="8,4"/>
   <text x="825" y="95" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e">MPCVAULT PLATFORM</text>
 
   <rect x="595" y="115" width="460" height="55" rx="3" fill="#1a1a2e"/>
@@ -241,68 +272,81 @@
   <rect x="595" y="400" width="460" height="40" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1"/>
   <text x="825" y="425" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#656d76">MPCVault API  |  REST / gRPC</text>
 
+  <!-- Anchor Integration box (inside MPCVault, dashed border) -->
+  <rect x="595" y="455" width="460" height="75" rx="3" fill="#fffbeb" stroke="#d97706" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="825" y="483" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#92400e">Anchor Integration (FUTURE)</text>
+  <text x="825" y="503" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#92400e">SEP-6 / SEP-24 wallet support  |  KYC flow</text>
+  <text x="825" y="520" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="11" fill="#a16207">Fiat deposit/withdraw directly from MPC-secured accounts</text>
+
   <!-- Cross arrows -->
   <line x1="505" y1="300" x2="595" y2="220" stroke="#0052FF" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowBlue)"/>
   <line x1="505" y1="360" x2="595" y2="420" stroke="#656d76" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
 
+  <!-- Anchor cross arrow -->
+  <line x1="505" y1="492" x2="595" y2="492" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowAmber)"/>
+
   <!-- TRANSACTION LIFECYCLE (Bottom) -->
-  <rect x="40" y="515" width="1020" height="45" rx="3" fill="#1a1a2e"/>
-  <text x="550" y="544" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">Transaction Lifecycle</text>
+  <rect x="40" y="575" width="1020" height="45" rx="3" fill="#1a1a2e"/>
+  <text x="550" y="604" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">Transaction Lifecycle</text>
 
-  <rect x="40" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="100" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Request</text>
+  <rect x="40" y="640" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="100" y="673" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Request</text>
 
-  <rect x="180" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="240" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Decode</text>
+  <rect x="180" y="640" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="240" y="673" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Decode</text>
 
-  <rect x="320" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="380" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Policy Check</text>
+  <rect x="320" y="640" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="380" y="673" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Policy Check</text>
 
-  <rect x="460" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="520" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Simulate</text>
+  <rect x="460" y="640" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="520" y="673" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Simulate</text>
 
-  <rect x="600" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="660" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Approve</text>
+  <rect x="600" y="640" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="660" y="673" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Approve</text>
 
-  <rect x="740" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#0052FF" stroke-width="1.5"/>
-  <text x="800" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">MPC Sign</text>
+  <rect x="740" y="640" width="120" height="55" rx="3" fill="#fff" stroke="#0052FF" stroke-width="1.5"/>
+  <text x="800" y="673" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">MPC Sign</text>
 
-  <rect x="880" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="940" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Submit</text>
+  <rect x="880" y="640" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="940" y="673" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Submit</text>
 
-  <line x1="160" y1="607" x2="180" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <line x1="300" y1="607" x2="320" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <line x1="440" y1="607" x2="460" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <line x1="580" y1="607" x2="600" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <line x1="720" y1="607" x2="740" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <line x1="860" y1="607" x2="880" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="160" y1="667" x2="180" y2="667" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="300" y1="667" x2="320" y2="667" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="440" y1="667" x2="460" y2="667" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="580" y1="667" x2="600" y2="667" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="720" y1="667" x2="740" y2="667" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="860" y1="667" x2="880" y2="667" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
 
   <!-- Labels under lifecycle -->
-  <text x="100" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">App, Web, API,</text>
-  <text x="100" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Plugin, WalletConnect</text>
-  <text x="240" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">XDR / SCVal</text>
-  <text x="240" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">human-readable</text>
-  <text x="380" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Allowlists, limits,</text>
-  <text x="380" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">multi-approval</text>
-  <text x="520" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Fee + resource</text>
-  <text x="520" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">estimation</text>
-  <text x="660" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Manual or</text>
-  <text x="660" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">programmatic (API)</text>
-  <text x="800" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">MPC EdDSA</text>
-  <text x="800" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Ed25519 signature</text>
-  <text x="940" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Horizon / RPC</text>
-  <text x="940" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">~5s finality</text>
+  <text x="100" y="712" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">App, Web, API,</text>
+  <text x="100" y="725" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Plugin, WalletConnect</text>
+  <text x="240" y="712" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">XDR / SCVal</text>
+  <text x="240" y="725" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">human-readable</text>
+  <text x="380" y="712" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Allowlists, limits,</text>
+  <text x="380" y="725" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">multi-approval</text>
+  <text x="520" y="712" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Fee + resource</text>
+  <text x="520" y="725" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">estimation</text>
+  <text x="660" y="712" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Manual or</text>
+  <text x="660" y="725" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">programmatic (API)</text>
+  <text x="800" y="712" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">MPC EdDSA</text>
+  <text x="800" y="725" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Ed25519 signature</text>
+  <text x="940" y="712" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Horizon / RPC</text>
+  <text x="940" y="725" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">~5s finality</text>
 
   <!-- USER box -->
-  <rect x="40" y="710" width="1020" height="55" rx="3" fill="#f8faff" stroke="#0052FF" stroke-width="1.5"/>
-  <text x="550" y="735" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#0052FF">MPCVault Users (e.g. Rang)</text>
-  <text x="550" y="755" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Accept Stellar payments  |  Manage XLM + tokens  |  Institutional governance  |  Full audit trail</text>
+  <rect x="40" y="770" width="1020" height="55" rx="3" fill="#f8faff" stroke="#0052FF" stroke-width="1.5"/>
+  <text x="550" y="795" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#0052FF">MPCVault Users (e.g. Rang)</text>
+  <text x="550" y="815" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Accept Stellar payments  |  Manage XLM + tokens  |  Fiat on/off-ramp  |  Institutional governance  |  Full audit trail</text>
+
+  <!-- FIAT box -->
+  <rect x="40" y="845" width="1020" height="45" rx="3" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="550" y="873" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#92400e">Traditional Finance  &mdash;  Bank accounts, payment rails, fiat currencies (via Anchor Platform)</text>
 </svg>
-    <p class="diagram-caption">Figure 1 &mdash; High-level architecture: Stellar network, MPCVault platform, transaction lifecycle, and end-user access.</p>
+    <p class="diagram-caption">Figure 1 &mdash; High-level architecture: Stellar network, MPCVault platform, transaction lifecycle, end-user access, and future Anchor Platform integration for fiat on/off-ramp.</p>
   </div>
 </section>
 
-<!-- ══════ 3. HOW IT WORKS ══════ -->
+<!-- 3. HOW IT WORKS -->
 <section>
   <h2>3. How It Works</h2>
 
@@ -332,7 +376,7 @@
   <p>Stellar requires explicit opt-in (trustlines) to hold non-XLM assets. MPCVault manages trustline creation and removal, governed by asset allowlists and approval policies. Users can hold and transact XLM, USDC, and any other Stellar-issued token.</p>
 </section>
 
-<!-- ══════ 4. ACCESS ══════ -->
+<!-- 4. ACCESS CHANNELS -->
 <section>
   <h2>4. Access Channels</h2>
   <p>All Stellar functionality is available consistently across every MPCVault access point:</p>
@@ -347,15 +391,53 @@
   <p>The Chrome Extension and WalletConnect relay dApp requests into MPCVault, where the same policy engine, approval workflows, and MPC signing apply. Developers can integrate Stellar payments into their own systems via the API.</p>
 </section>
 
-<!-- ══════ 5. CUSTOM TRANSACTIONS ══════ -->
+<!-- 5. ANCHOR PLATFORM -->
 <section>
-  <h2>5. Custom Transactions</h2>
+  <h2>5. Fiat On/Off-Ramp: Stellar Anchor Platform</h2>
+
+  <div class="future-box">
+    <div class="future-label">Future Integration</div>
+    <h3>Why Anchors Matter</h3>
+    <p>The Stellar Anchor Platform is one of Stellar's most distinctive features. Anchors are services that bridge traditional finance and the Stellar network &mdash; they accept deposits of fiat currency (USD, EUR, NGN, ARS, etc.) via existing payment rails (bank transfers, mobile money, cash-in points) and issue equivalent digital tokens on Stellar. They also allow token holders to redeem tokens back for fiat. This is the infrastructure that makes Stellar uniquely suited for real-world payments.</p>
+  </div>
+
+  <h3>What It Enables for MPCVault Users</h3>
+  <p>Integrating with the Anchor Platform would allow MPCVault users like Rang to move seamlessly between fiat currencies and Stellar tokens &mdash; all from their MPC-secured accounts. A business could receive a bank payment that automatically converts to USDC on Stellar, or redeem Stellar tokens back to fiat for settlement. This closes the loop between traditional payment rails and Stellar-based custody.</p>
+
+  <h3>How It Works</h3>
+  <p>The Anchor Platform is built on standardized Stellar Ecosystem Proposals (SEPs) that define how wallets and anchors interoperate:</p>
+  <table>
+    <tr><th>Protocol</th><th>Purpose</th><th>How MPCVault Would Use It</th></tr>
+    <tr><td><strong>SEP-6</strong></td><td>Programmatic deposit &amp; withdrawal</td><td>API-driven fiat on/off-ramp &mdash; fully automated for enterprise workflows, no user interaction required beyond initial setup.</td></tr>
+    <tr><td><strong>SEP-24</strong></td><td>Interactive (hosted) deposit &amp; withdrawal</td><td>Users complete KYC and fiat transfers through an anchor's hosted UI without leaving MPCVault. The anchor handles compliance, MPCVault handles custody.</td></tr>
+    <tr><td><strong>SEP-31</strong></td><td>Cross-border payments</td><td>Bank-to-bank international transfers via Stellar. Enables MPCVault users to send fiat from one region to another through anchor-to-anchor settlement.</td></tr>
+    <tr><td><strong>SEP-10</strong></td><td>Authentication</td><td>Wallet authentication between MPCVault and anchor services &mdash; signed with the same MPC-secured Ed25519 keys.</td></tr>
+    <tr><td><strong>SEP-12</strong></td><td>KYC/AML data</td><td>Customer identity verification managed through the anchor's compliance process, keeping MPCVault focused on custody.</td></tr>
+    <tr><td><strong>SEP-38</strong></td><td>Quotes &amp; exchange rates</td><td>Real-time pricing for fiat-to-token conversions, displayed to users before confirming a deposit or withdrawal.</td></tr>
+  </table>
+
+  <h3>Integration Approach</h3>
+  <p>This integration would be scoped as a future phase, building on top of the core Stellar support. The approach:</p>
+  <ul>
+    <li><strong>Wallet-side SEP support</strong> &mdash; MPCVault implements the wallet-side of SEP-6 and SEP-24, allowing it to interact with any compliant Stellar anchor. No need to build anchor infrastructure ourselves.</li>
+    <li><strong>MPC-signed authentication</strong> &mdash; SEP-10 authentication uses the same Ed25519 keys already managed by the MPC engine. Users authenticate to anchors without exposing private keys.</li>
+    <li><strong>Policy-gated fiat flows</strong> &mdash; Anchor deposit/withdrawal transactions go through the same governance lifecycle as any other Stellar transaction: policy check, approval workflow, MPC signing.</li>
+    <li><strong>Anchor directory</strong> &mdash; MPCVault would surface available anchors per asset/region, so users can choose their preferred on/off-ramp provider.</li>
+  </ul>
+
+  <h3>Enterprise Use Case</h3>
+  <p>For a business like Rang: a customer pays in local fiat, the anchor converts it to USDC on Stellar, and it arrives in Rang's MPC-secured vault &mdash; all governed by spending limits, approval workflows, and a full audit trail. When Rang needs to settle in fiat, they redeem through an anchor off-ramp. The entire flow stays within institutional-grade custody.</p>
+</section>
+
+<!-- 6. CUSTOM TRANSACTIONS -->
+<section>
+  <h2>6. Custom Transactions</h2>
   <p>For advanced users and developers, MPCVault supports custom transaction submission &mdash; any protocol-compliant Stellar Classic or Soroban payload. Custom transactions still go through the full governance lifecycle: decode, policy check, simulation, approval, and MPC signing. This enables flexibility without bypassing security controls.</p>
 </section>
 
-<!-- ══════ 6. SECURITY ══════ -->
+<!-- 7. SECURITY -->
 <section>
-  <h2>6. Security</h2>
+  <h2>7. Security</h2>
   <p>Key security properties of the integration:</p>
   <ul>
     <li><strong>No single point of key compromise</strong> &mdash; private keys are split across three shares and never reconstructed.</li>
@@ -364,6 +446,7 @@
     <li><strong>Transaction simulation</strong> &mdash; every transaction is simulated before signing to prevent unexpected outcomes.</li>
     <li><strong>Asset controls</strong> &mdash; allowlists and denylists prevent exposure to malicious or unwanted tokens.</li>
     <li><strong>Full audit trail</strong> &mdash; unified transaction history across Classic and Soroban with human-readable decoding.</li>
+    <li><strong>Anchor authentication</strong> &mdash; SEP-10 authentication with anchors uses the same MPC-secured keys, with no private key exposure during the fiat on/off-ramp process.</li>
   </ul>
 </section>
 
