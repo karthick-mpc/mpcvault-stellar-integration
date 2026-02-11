@@ -15,7 +15,6 @@
     font-size: 16px;
   }
 
-  /* ── Header ───────────────────────────────── */
   .doc-header {
     border-bottom: 1px solid #d1d9e0;
     padding: 2.5rem 0 2rem;
@@ -37,9 +36,7 @@
     line-height: 1.25;
   }
 
-  /* ── Layout ───────────────────────────────── */
   .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
-
   section { margin-bottom: 3rem; }
 
   h2 {
@@ -50,17 +47,17 @@
     border-bottom: 2px solid #d1d9e0;
     margin-bottom: 1.25rem;
   }
-
   h3 {
     font-size: 1.15rem;
     font-weight: 600;
     color: #24292f;
     margin: 1.5rem 0 0.6rem;
   }
-
   p { margin-bottom: 0.9rem; color: #24292f; }
 
-  /* ── Code ──────────────────────────────────── */
+  ul { margin: 0.5rem 0 1rem 1.5rem; color: #24292f; }
+  ul li { margin-bottom: 0.35rem; font-size: 0.95rem; }
+
   code {
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
     font-size: 0.9em;
@@ -70,21 +67,7 @@
     border: 1px solid #d1d9e0;
     color: #1a1a2e;
   }
-  .code-block {
-    display: block;
-    background: #f6f8fa;
-    border: 1px solid #d1d9e0;
-    border-radius: 4px;
-    padding: 0.75rem 1rem;
-    margin: 0.75rem 0 1rem;
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    font-size: 0.95rem;
-    color: #1a1a2e;
-    text-align: center;
-    overflow-x: auto;
-  }
 
-  /* ── Tables ───────────────────────────────── */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -103,9 +86,26 @@
     color: #24292f;
     font-size: 0.9rem;
   }
-  td { color: #24292f; }
 
-  /* ── Diagram ──────────────────────────────── */
+  .callout {
+    border-left: 4px solid #0052FF;
+    background: #f6f8fa;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout p { margin-bottom: 0.5rem; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .usecase {
+    border: 2px solid #0052FF;
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    background: #f8faff;
+  }
+  .usecase h3 { margin-top: 0; color: #0052FF; }
+
   .diagram-wrap {
     border: 1px solid #d1d9e0;
     border-radius: 4px;
@@ -123,105 +123,6 @@
     font-style: italic;
   }
 
-  /* ── Callout box ──────────────────────────── */
-  .callout {
-    border-left: 4px solid #0052FF;
-    background: #f6f8fa;
-    padding: 1rem 1.25rem;
-    margin-bottom: 1.5rem;
-    border-radius: 0 4px 4px 0;
-  }
-  .callout p { margin-bottom: 0.5rem; }
-  .callout p:last-child { margin-bottom: 0; }
-
-  /* ── Compatibility table (replaces emoji grid) */
-  .compat-table td:first-child {
-    font-weight: 600;
-    white-space: nowrap;
-    width: 200px;
-  }
-
-  /* ── Flow steps ───────────────────────────── */
-  .flow-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0 1.5rem;
-  }
-  .flow-table th, .flow-table td {
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #d1d9e0;
-    font-size: 0.95rem;
-    vertical-align: top;
-  }
-  .flow-table th { background: #f6f8fa; font-weight: 600; text-align: center; width: 50px; }
-  .flow-table td:first-child { text-align: center; font-weight: 600; color: #656d76; }
-  .flow-table td:nth-child(2) { font-weight: 600; }
-
-  /* ── Tranches ─────────────────────────────── */
-  .tranche {
-    border: 1px solid #d1d9e0;
-    border-radius: 4px;
-    margin-bottom: 2rem;
-    overflow: hidden;
-  }
-  .tranche-header {
-    padding: 0.85rem 1.25rem;
-    background: #f6f8fa;
-    border-bottom: 1px solid #d1d9e0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .tranche-header h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #1a1a2e;
-    margin: 0;
-  }
-  .tranche-header span {
-    font-size: 0.85rem;
-    color: #656d76;
-  }
-  .tranche-body { padding: 1.25rem; }
-
-  .deliverable {
-    border-bottom: 1px solid #eaeef2;
-    padding: 1rem 0;
-  }
-  .deliverable:last-child { border-bottom: none; padding-bottom: 0; }
-  .deliverable:first-child { padding-top: 0; }
-
-  .deliverable h4 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #24292f;
-    margin-bottom: 0.3rem;
-  }
-  .deliverable h4 .d-label {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #656d76;
-    background: #f6f8fa;
-    border: 1px solid #d1d9e0;
-    padding: 0.1rem 0.4rem;
-    border-radius: 3px;
-    margin-right: 0.4rem;
-    vertical-align: middle;
-    font-family: 'SFMono-Regular', Consolas, monospace;
-  }
-  .deliverable p {
-    font-size: 0.95rem;
-    margin-bottom: 0.4rem;
-    color: #24292f;
-  }
-  .deliverable .measure {
-    font-size: 0.88rem;
-    color: #656d76;
-    margin-bottom: 0;
-  }
-
-  /* ── Footer ───────────────────────────────── */
   footer {
     border-top: 1px solid #d1d9e0;
     padding: 1.5rem 0;
@@ -233,7 +134,6 @@
   footer a { color: #0052FF; text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
-  /* ── Responsive ───────────────────────────── */
   @media (max-width: 700px) {
     .doc-header h1 { font-size: 1.7rem; }
     h2 { font-size: 1.25rem; }
@@ -244,7 +144,6 @@
 <body>
 <div class="container">
 
-<!-- ══════ HEADER ══════ -->
 <div class="doc-header">
   <div class="label">SCF Technical Submission</div>
   <h1>Stellar Chain Integration into MPCVault</h1>
@@ -252,354 +151,223 @@
 
 <!-- ══════ 1. EXECUTIVE SUMMARY ══════ -->
 <section>
-  <h2>1. Executive Summary</h2>
+  <h2>1. Overview</h2>
   <div class="callout">
-    <p>MPCVault's MPC engine natively supports <code>KEY_TYPE_ECC_ED25519</code>, which directly maps to Stellar's Ed25519 keypair requirement. No additional curve support or adapter layer is needed &mdash; making Stellar a natural fit for integration.</p>
-    <p>This document details how each layer of the Stellar stack maps to MPCVault's infrastructure: SCP consensus, XDR transaction encoding, Horizon/RPC APIs, Classic operations, and Soroban smart contracts.</p>
+    <p>MPCVault is an institutional-grade MPC custody platform. This integration adds native Stellar support so that MPCVault users &mdash; such as <strong>Rang</strong> &mdash; can securely accept and manage payments on the Stellar network, for both XLM and Stellar-issued tokens like USDC.</p>
+    <p>MPCVault's MPC engine already supports Ed25519 natively, which is the same signing curve Stellar uses. No new cryptographic adapter is needed &mdash; Stellar is a natural fit.</p>
+  </div>
+
+  <div class="usecase">
+    <h3>Use Case: Accepting Payments on Stellar</h3>
+    <p>Businesses using MPCVault (e.g., Rang) need to receive payments from customers and partners on the Stellar network. This integration enables them to:</p>
+    <ul>
+      <li><strong>Create Stellar accounts</strong> through MPCVault &mdash; secured by MPC, with no single party holding the full private key.</li>
+      <li><strong>Accept XLM and token payments</strong> (USDC, yXLM, etc.) with automatic trustline management.</li>
+      <li><strong>Send payments</strong> with institutional controls &mdash; approval workflows, spending limits, and address allowlists enforced before any transaction is signed.</li>
+      <li><strong>Interact with Soroban dApps</strong> for DeFi and advanced contract-based payment flows, all from the same MPC-secured account.</li>
+      <li><strong>Access everything</strong> via App, Web, API, or browser plugin &mdash; with full transaction history and audit trails.</li>
+    </ul>
   </div>
 </section>
 
 <!-- ══════ 2. ARCHITECTURE DIAGRAM ══════ -->
 <section>
-  <h2>2. Architecture Diagram</h2>
+  <h2>2. Architecture</h2>
   <div class="diagram-wrap">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1300" width="1100" height="1300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 820" width="1100" height="820">
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#656d76"/>
     </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0052FF"/>
+    </marker>
   </defs>
 
-  <text x="550" y="40" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#1a1a2e">Stellar Chain Integration Architecture &mdash; MPCVault</text>
+  <text x="550" y="38" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#1a1a2e">Stellar Chain Integration Architecture</text>
 
   <!-- STELLAR NETWORK (Left) -->
-  <rect x="20" y="70" width="510" height="1170" rx="4" fill="none" stroke="#0052FF" stroke-width="2" stroke-dasharray="8,4"/>
-  <text x="275" y="100" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#0052FF">STELLAR NETWORK</text>
+  <rect x="20" y="65" width="510" height="420" rx="4" fill="none" stroke="#0052FF" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="275" y="95" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#0052FF">STELLAR NETWORK</text>
 
-  <!-- SCP -->
-  <rect x="45" y="120" width="460" height="85" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="275" y="152" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e">Stellar Consensus Protocol (SCP)</text>
-  <text x="275" y="178" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14" fill="#656d76">Federated Byzantine Agreement</text>
+  <rect x="45" y="115" width="460" height="55" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="275" y="140" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#1a1a2e">Consensus (SCP)</text>
+  <text x="275" y="160" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">~5s finality  |  Federated Byzantine Agreement</text>
 
-  <!-- Core + Ledger -->
-  <rect x="45" y="225" width="460" height="80" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="275" y="258" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e">Stellar Core + Ledger</text>
-  <text x="275" y="284" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#656d76">XDR Encoding  |  Accounts (G...)  |  Sequence Numbers</text>
+  <rect x="45" y="185" width="220" height="70" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="155" y="215" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Classic Operations</text>
+  <text x="155" y="237" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Payments, Trustlines, Accounts</text>
 
-  <!-- Classic Ops -->
-  <rect x="45" y="325" width="220" height="120" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="155" y="355" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Classic Operations</text>
-  <text x="155" y="380" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#656d76">Payment, CreateAccount</text>
-  <text x="155" y="400" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#656d76">ChangeTrust, ManageData</text>
-  <text x="155" y="420" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#656d76">SetOptions, AccountMerge</text>
+  <rect x="285" y="185" width="220" height="70" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="395" y="215" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Soroban Contracts</text>
+  <text x="395" y="237" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Smart contracts (Rust/WASM)</text>
 
-  <!-- Soroban -->
-  <rect x="285" y="325" width="220" height="120" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="395" y="355" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Soroban Contracts</text>
-  <text x="395" y="380" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#656d76">InvokeHostFunctionOp</text>
-  <text x="395" y="400" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#656d76">WASM Runtime (Rust)</text>
-  <text x="395" y="420" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#656d76">Stellar Asset Contract</text>
+  <rect x="45" y="270" width="460" height="50" rx="3" fill="#fff" stroke="#0052FF" stroke-width="1.5"/>
+  <text x="275" y="300" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Ed25519 Signing</text>
 
-  <!-- Ed25519 Signing -->
-  <rect x="45" y="465" width="460" height="70" rx="3" fill="#fff" stroke="#0052FF" stroke-width="1.5"/>
-  <text x="275" y="495" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#1a1a2e">Ed25519 Transaction Signing</text>
-  <text x="275" y="520" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#656d76">sign( SHA256(network_passphrase) || tx_envelope_xdr )</text>
+  <rect x="45" y="335" width="220" height="50" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="155" y="365" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#1a1a2e">Horizon API</text>
 
-  <!-- Horizon -->
-  <rect x="45" y="555" width="220" height="70" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="155" y="585" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Horizon REST API</text>
-  <text x="155" y="607" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Accounts, Transactions, Ledger</text>
+  <rect x="285" y="335" width="220" height="50" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="395" y="365" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#1a1a2e">Soroban RPC</text>
 
-  <!-- Soroban RPC -->
-  <rect x="285" y="555" width="220" height="70" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="395" y="585" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Soroban RPC</text>
-  <text x="395" y="607" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#656d76">simulateTx, sendTx, getEvents</text>
+  <rect x="45" y="400" width="220" height="40" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1"/>
+  <text x="155" y="425" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Mainnet | Testnet</text>
 
-  <!-- SDKs -->
-  <rect x="45" y="645" width="460" height="55" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="275" y="670" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#1a1a2e">Stellar SDKs</text>
-  <text x="275" y="690" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">JavaScript (js-stellar-sdk)  |  Python (py-stellar-base)  |  Go</text>
+  <rect x="285" y="400" width="220" height="40" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1"/>
+  <text x="395" y="425" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">SDKs (JS, Python, Go)</text>
 
   <!-- MPCVAULT PLATFORM (Right) -->
-  <rect x="570" y="70" width="510" height="1170" rx="4" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-dasharray="8,4"/>
-  <text x="825" y="100" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#1a1a2e">MPCVAULT PLATFORM</text>
+  <rect x="570" y="65" width="510" height="420" rx="4" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="825" y="95" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e">MPCVAULT PLATFORM</text>
 
-  <!-- MPC-TSS Engine -->
-  <rect x="595" y="120" width="460" height="85" rx="3" fill="#1a1a2e" stroke="#1a1a2e" stroke-width="1.5"/>
-  <text x="825" y="152" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">MPC-TSS Engine (3-of-3)</text>
-  <text x="825" y="178" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#94a3b8">Distributed Key Generation  |  Threshold Signing  |  TEE</text>
+  <rect x="595" y="115" width="460" height="55" rx="3" fill="#1a1a2e"/>
+  <text x="825" y="140" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">MPC EdDSA Engine</text>
+  <text x="825" y="160" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#94a3b8">1 User Share + 2 Cloud Shares  |  Key never reconstructed</text>
 
-  <!-- Key Derivation -->
-  <rect x="595" y="225" width="460" height="80" rx="3" fill="#1a1a2e" stroke="#1a1a2e" stroke-width="1.5"/>
-  <text x="825" y="258" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">Ed25519 Key Derivation</text>
-  <text x="825" y="284" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="13" fill="#94a3b8">KEY_TYPE_ECC_ED25519  |  Hardened BIP-like Path</text>
+  <rect x="595" y="185" width="460" height="70" rx="3" fill="#fff" stroke="#0052FF" stroke-width="2"/>
+  <text x="825" y="215" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#0052FF">Stellar Chain Module (NEW)</text>
+  <text x="825" y="237" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Classic + Soroban  |  Decode, Simulate, Sign, Submit</text>
 
-  <!-- Stellar Chain Module -->
-  <rect x="595" y="325" width="460" height="210" rx="3" fill="#fff" stroke="#0052FF" stroke-width="2"/>
-  <text x="825" y="355" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#0052FF">Stellar Chain Module (NEW)</text>
+  <rect x="595" y="270" width="460" height="50" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="825" y="300" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Policy Engine</text>
 
-  <rect x="615" y="370" width="420" height="35" rx="2" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1"/>
-  <text x="825" y="393" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#24292f">Address: MPC-DKG &#8594; Ed25519 &#8594; StrKey G... encoding</text>
+  <rect x="595" y="335" width="220" height="50" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="705" y="365" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#1a1a2e">App | Web | API</text>
 
-  <rect x="615" y="412" width="420" height="35" rx="2" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1"/>
-  <text x="825" y="435" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#24292f">Tx Builder: XDR construction, seq num, fees, memo</text>
+  <rect x="835" y="335" width="220" height="50" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="945" y="365" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#1a1a2e">Plugin | WalletConnect</text>
 
-  <rect x="615" y="454" width="420" height="35" rx="2" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1"/>
-  <text x="825" y="477" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#24292f">Signing: SHA256(network_id || tx_type || body) &#8594; EdDSA</text>
-
-  <rect x="615" y="496" width="420" height="30" rx="2" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1"/>
-  <text x="825" y="516" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="11" fill="#656d76">Soroban: simulateTx &#8594; InvokeHostFunctionOp &#8594; sign</text>
-
-  <!-- Approval Engine -->
-  <rect x="595" y="555" width="460" height="70" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="825" y="585" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Approval &amp; Policy Engine</text>
-  <text x="825" y="607" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#656d76">Multi-sig policies  |  Allowlists  |  API Client Signer</text>
-
-  <!-- MPCVault API -->
-  <rect x="595" y="645" width="460" height="55" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="825" y="670" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#1a1a2e">MPCVault API</text>
-  <text x="825" y="690" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#656d76">CreateSigningRequest  |  ExecuteSigningRequests  |  gRPC</text>
-
-  <!-- TRANSACTION SIGNING FLOW (Bottom) -->
-  <rect x="60" y="750" width="980" height="65" rx="3" fill="#1a1a2e"/>
-  <text x="550" y="778" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">Transaction Signing Flow</text>
-  <text x="550" y="800" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="13" fill="#94a3b8">Construct XDR &#8594; MPC Threshold Sign (Ed25519) &#8594; Assemble Envelope &#8594; Submit to Stellar</text>
-
-  <!-- Flow Steps -->
-  <rect x="60" y="840" width="230" height="85" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="175" y="868" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#1a1a2e">1. Build Transaction</text>
-  <text x="175" y="890" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">SDK constructs XDR with</text>
-  <text x="175" y="908" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">ops, seq#, fees, memo</text>
-
-  <rect x="320" y="840" width="230" height="85" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="435" y="868" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#1a1a2e">2. Hash &amp; Sign (MPC)</text>
-  <text x="435" y="890" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#656d76">SHA256(network_id || tx)</text>
-  <text x="435" y="908" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">3-of-3 Ed25519 threshold</text>
-
-  <rect x="580" y="840" width="230" height="85" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="695" y="868" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#1a1a2e">3. Approve &amp; Assemble</text>
-  <text x="695" y="890" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Policy engine validates</text>
-  <text x="695" y="908" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Attach sig to envelope</text>
-
-  <rect x="840" y="840" width="200" height="85" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="940" y="868" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#1a1a2e">4. Submit</text>
-  <text x="940" y="890" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">POST to QuickNode endpoint</text>
-  <text x="940" y="908" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Await SCP finality (~5s)</text>
-
-  <line x1="290" y1="882" x2="320" y2="882" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <line x1="550" y1="882" x2="580" y2="882" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <line x1="810" y1="882" x2="840" y2="882" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
-
-  <!-- Soroban Flow -->
-  <rect x="60" y="950" width="980" height="90" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="550" y="980" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Soroban Smart Contract Invocation Path</text>
-  <text x="550" y="1005" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="12" fill="#656d76">simulateTransaction(RPC) &#8594; Build InvokeHostFunctionOp + SorobanResources &#8594; MPC-sign &#8594; Submit</text>
-  <text x="550" y="1025" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Auth entries (SorobanAuthorizedInvocation) signed separately for contract-level authorization</text>
-
-  <!-- Networks -->
-  <rect x="60" y="1065" width="480" height="95" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="300" y="1095" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Mainnet</text>
-  <text x="300" y="1118" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="11" fill="#656d76">Passphrase: "Public Global Stellar Network ; September 2015"</text>
-  <text x="300" y="1138" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="11" fill="#656d76">Horizon via QuickNode  |  Base Fee: 100 stroops  |  Reserve: 0.5 XLM</text>
-
-  <rect x="560" y="1065" width="480" height="95" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
-  <text x="800" y="1095" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1a1a2e">Testnet</text>
-  <text x="800" y="1118" text-anchor="middle" font-family="Consolas,'Liberation Mono',monospace" font-size="11" fill="#656d76">Passphrase: "Test SDF Network ; September 2015"</text>
-  <text x="800" y="1138" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="11" fill="#656d76">Horizon via QuickNode (Testnet)  |  Friendbot for funding</text>
+  <rect x="595" y="400" width="460" height="40" rx="3" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1"/>
+  <text x="825" y="425" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#656d76">MPCVault API  |  REST / gRPC</text>
 
   <!-- Cross arrows -->
-  <line x1="505" y1="500" x2="595" y2="460" stroke="#0052FF" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-  <line x1="505" y1="590" x2="595" y2="670" stroke="#656d76" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+  <line x1="505" y1="300" x2="595" y2="220" stroke="#0052FF" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowBlue)"/>
+  <line x1="505" y1="360" x2="595" y2="420" stroke="#656d76" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+
+  <!-- TRANSACTION LIFECYCLE (Bottom) -->
+  <rect x="40" y="515" width="1020" height="45" rx="3" fill="#1a1a2e"/>
+  <text x="550" y="544" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">Transaction Lifecycle</text>
+
+  <rect x="40" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="100" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Request</text>
+
+  <rect x="180" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="240" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Decode</text>
+
+  <rect x="320" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="380" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Policy Check</text>
+
+  <rect x="460" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="520" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Simulate</text>
+
+  <rect x="600" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="660" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Approve</text>
+
+  <rect x="740" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#0052FF" stroke-width="1.5"/>
+  <text x="800" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">MPC Sign</text>
+
+  <rect x="880" y="580" width="120" height="55" rx="3" fill="#fff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <text x="940" y="613" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Submit</text>
+
+  <line x1="160" y1="607" x2="180" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="300" y1="607" x2="320" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="440" y1="607" x2="460" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="580" y1="607" x2="600" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="720" y1="607" x2="740" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="860" y1="607" x2="880" y2="607" stroke="#656d76" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Labels under lifecycle -->
+  <text x="100" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">App, Web, API,</text>
+  <text x="100" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Plugin, WalletConnect</text>
+  <text x="240" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">XDR / SCVal</text>
+  <text x="240" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">human-readable</text>
+  <text x="380" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Allowlists, limits,</text>
+  <text x="380" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">multi-approval</text>
+  <text x="520" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Fee + resource</text>
+  <text x="520" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">estimation</text>
+  <text x="660" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Manual or</text>
+  <text x="660" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">programmatic (API)</text>
+  <text x="800" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">MPC EdDSA</text>
+  <text x="800" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Ed25519 signature</text>
+  <text x="940" y="652" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">Horizon / RPC</text>
+  <text x="940" y="665" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#656d76">~5s finality</text>
+
+  <!-- USER box -->
+  <rect x="40" y="710" width="1020" height="55" rx="3" fill="#f8faff" stroke="#0052FF" stroke-width="1.5"/>
+  <text x="550" y="735" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#0052FF">MPCVault Users (e.g. Rang)</text>
+  <text x="550" y="755" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#656d76">Accept Stellar payments  |  Manage XLM + tokens  |  Institutional governance  |  Full audit trail</text>
 </svg>
-    <p class="diagram-caption">Figure 1 &mdash; Stellar network stack (left) mapped to MPCVault platform components (right).</p>
+    <p class="diagram-caption">Figure 1 &mdash; High-level architecture: Stellar network, MPCVault platform, transaction lifecycle, and end-user access.</p>
   </div>
 </section>
 
-<!-- ══════ 3. STELLAR TECH STACK ══════ -->
+<!-- ══════ 3. HOW IT WORKS ══════ -->
 <section>
-  <h2>3. Stellar Tech Stack Overview</h2>
+  <h2>3. How It Works</h2>
 
-  <h3>3.1 Consensus: Stellar Consensus Protocol (SCP)</h3>
-  <p>Stellar uses Federated Byzantine Agreement (FBA) rather than PoW or PoS. Each validator selects trusted peers via <strong>quorum slices</strong>; overlapping trust relationships produce network-wide consensus with ~5-second deterministic finality. This eliminates the need for block-confirmation counting &mdash; MPCVault can surface transaction results within seconds of submission.</p>
+  <h3>Stellar Classic + Soroban</h3>
+  <p>MPCVault supports both layers of the Stellar network. <strong>Stellar Classic</strong> handles native payments, trustlines, and account management. <strong>Soroban</strong> enables smart contract interactions for DeFi and advanced payment flows. MPCVault detects the transaction type automatically and routes it to the right network interface.</p>
 
-  <h3>3.2 Account Model</h3>
+  <h3>MPC Key Management</h3>
+  <p>Stellar accounts are generated using MPC-based Ed25519 key generation. The private key is split into three shares &mdash; one held by the user and two by MPCVault's cloud infrastructure. The full key is never reconstructed or exposed at any point. The same account works for both Classic and Soroban transactions.</p>
+
+  <h3>Transaction Lifecycle</h3>
+  <p>Every Stellar transaction follows a consistent lifecycle through MPCVault:</p>
   <table>
-    <tr><th>Property</th><th>Stellar Implementation</th></tr>
-    <tr><td>Address Format</td><td>Ed25519 public key, StrKey-encoded (<code>G...</code> prefix, 56 chars)</td></tr>
-    <tr><td>Keypair</td><td>Ed25519 (RFC 8032); secret key StrKey <code>S...</code> prefix</td></tr>
-    <tr><td>Sequence Number</td><td>Monotonic +1 increment per transaction; starts at ledger # of account creation</td></tr>
-    <tr><td>Minimum Balance</td><td>Base reserve 0.5 XLM per subentry; min 1 XLM for empty account</td></tr>
-    <tr><td>Signers &amp; Thresholds</td><td>Master key + additional Ed25519 / pre-auth / hash(x) signers; Low/Med/High thresholds (0&ndash;255)</td></tr>
-    <tr><td>Trustlines</td><td>Explicit <code>ChangeTrust</code> op required to hold non-XLM assets (USDC, etc.)</td></tr>
+    <tr><th>Step</th><th>What Happens</th></tr>
+    <tr><td><strong>Request</strong></td><td>User initiates a transaction via App, Web, API, Chrome Extension, or WalletConnect.</td></tr>
+    <tr><td><strong>Decode</strong></td><td>Transaction data is decoded into a human-readable format &mdash; showing amounts, destinations, assets, fees &mdash; so approvers can see exactly what they're signing.</td></tr>
+    <tr><td><strong>Policy Check</strong></td><td>MPCVault's off-chain policy engine validates the transaction against address allowlists, spending limits, risk rules, and multi-party approval requirements. Rejected transactions never reach signing.</td></tr>
+    <tr><td><strong>Simulate</strong></td><td>The transaction is simulated to estimate fees and confirm it will succeed before committing.</td></tr>
+    <tr><td><strong>Approve</strong></td><td>Human approvers confirm manually, or the API approves programmatically on behalf of authorized users.</td></tr>
+    <tr><td><strong>MPC Sign</strong></td><td>The three key shares produce a single valid Ed25519 signature via MPC &mdash; without any party ever seeing the full private key.</td></tr>
+    <tr><td><strong>Submit</strong></td><td>The signed transaction is broadcast to the Stellar network. Confirmation takes ~5 seconds. If submission fails transiently, MPCVault supports controlled re-broadcast.</td></tr>
   </table>
 
-  <h3>3.3 Transaction Model &amp; Signing</h3>
-  <p>Transactions bundle 1&ndash;100 operations (Soroban: 1 op max), serialized as <strong>XDR</strong>, and wrapped in a <code>TransactionEnvelope</code> with signatures. The signature base is chain-specific:</p>
-  <div class="code-block">sign( SHA256( SHA256(network_passphrase) || ENVELOPE_TYPE_TX || tx_body_xdr ) )</div>
-  <p>Network passphrases prevent cross-chain replay. The base fee is <strong>100 stroops (0.00001 XLM) per operation</strong>. Fee-bump transactions allow any account to sponsor fees without re-signing.</p>
+  <h3>Policy &amp; Governance</h3>
+  <p>All Stellar transactions are subject to MPCVault's institutional governance controls: address allowlists and denylists, per-transaction and cumulative spending limits, role-based multi-party approval workflows, risk classification, and time-based access controls. These policies are enforced at the MPC signing layer, before any transaction reaches the Stellar network.</p>
 
-  <h3>3.4 Key Classic Operations</h3>
-  <table>
-    <tr><th>Operation</th><th>Purpose</th><th>MPCVault Use</th></tr>
-    <tr><td><code>CreateAccount</code></td><td>Fund &amp; activate new accounts</td><td>Initial vault address activation</td></tr>
-    <tr><td><code>Payment</code></td><td>Send XLM or issued assets</td><td>Core custody transfer operation</td></tr>
-    <tr><td><code>ChangeTrust</code></td><td>Manage asset trustlines</td><td>Enable USDC, SHX, etc. in vaults</td></tr>
-    <tr><td><code>SetOptions</code></td><td>Configure signers &amp; thresholds</td><td>Map MPC keys as account signers</td></tr>
-    <tr><td><code>InvokeHostFunctionOp</code></td><td>Call Soroban smart contracts</td><td>DeFi from MPC-secured vaults</td></tr>
-  </table>
-
-  <h3>3.5 Soroban Smart Contracts</h3>
-  <p>Soroban is Stellar's native smart contract platform (not a sidechain). Contracts are Rust &rarr; WASM, invoked via <code>InvokeHostFunctionOp</code>. Key integration points: <code>simulateTransaction</code> for resource estimation, <code>SorobanResources</code> for ledger footprint, and <code>SorobanAuthorizedInvocation</code> for contract-level auth signing. The Stellar Asset Contract bridges Classic assets into Soroban.</p>
-
-  <h3>3.6 Network API Layer</h3>
-  <table>
-    <tr><th>API</th><th>Protocol</th><th>Key Endpoints</th><th>Integration Use</th></tr>
-    <tr><td>Horizon (via QuickNode)</td><td>REST/HTTP</td><td>accounts, transactions, payments, effects</td><td>Account queries, tx submission, balance monitoring</td></tr>
-    <tr><td>Soroban RPC (via QuickNode)</td><td>JSON-RPC</td><td>simulateTransaction, sendTransaction, getTransaction</td><td>Contract invocation, resource estimation</td></tr>
-  </table>
+  <h3>Trustline &amp; Asset Management</h3>
+  <p>Stellar requires explicit opt-in (trustlines) to hold non-XLM assets. MPCVault manages trustline creation and removal, governed by asset allowlists and approval policies. Users can hold and transact XLM, USDC, and any other Stellar-issued token.</p>
 </section>
 
-<!-- ══════ 4. COMPATIBILITY ══════ -->
+<!-- ══════ 4. ACCESS ══════ -->
 <section>
-  <h2>4. MPCVault &harr; Stellar Compatibility</h2>
-  <table class="compat-table">
-    <tr><th>MPCVault Component</th><th>Stellar Requirement</th><th>Compatibility</th></tr>
-    <tr><td><code>KEY_TYPE_ECC_ED25519</code></td><td>Ed25519 keypair (RFC 8032)</td><td>Native match &mdash; no adapter layer needed</td></tr>
-    <tr><td>3-of-3 MPC-TSS threshold signing</td><td>Ed25519 signature on tx hash</td><td>Produces standard Ed25519 sig, indistinguishable to validators</td></tr>
-    <tr><td>Hardened hierarchical derivation</td><td>Unique keypair per account</td><td>Isolated keys per vault with StrKey <code>G...</code> encoding</td></tr>
-    <tr><td>Periodic key share refresh</td><td>Key stability (address unchanged)</td><td>Public key stable; only shares rotate</td></tr>
-    <tr><td>Cross-chain isolation (patented)</td><td>Network passphrase binding</td><td>Complementary: both prevent cross-chain replay</td></tr>
-    <tr><td>TEE runtime (SGX + SEV)</td><td>N/A</td><td>Additional layer: zero-trust key share management</td></tr>
+  <h2>4. Access Channels</h2>
+  <p>All Stellar functionality is available consistently across every MPCVault access point:</p>
+  <table>
+    <tr><th>Channel</th><th>Description</th></tr>
+    <tr><td>MPCVault App</td><td>Mobile application for transaction management and approvals</td></tr>
+    <tr><td>MPCVault Web</td><td>Browser interface with full feature parity</td></tr>
+    <tr><td>MPCVault API</td><td>Programmatic access for developers and enterprise integrations</td></tr>
+    <tr><td>Chrome Extension</td><td>Browser plugin for interacting with Stellar dApps</td></tr>
+    <tr><td>WalletConnect</td><td>Standard protocol for connecting to external Stellar and Soroban applications</td></tr>
   </table>
+  <p>The Chrome Extension and WalletConnect relay dApp requests into MPCVault, where the same policy engine, approval workflows, and MPC signing apply. Developers can integrate Stellar payments into their own systems via the API.</p>
 </section>
 
-<!-- ══════ 5. SIGNING FLOW ══════ -->
+<!-- ══════ 5. CUSTOM TRANSACTIONS ══════ -->
 <section>
-  <h2>5. Transaction Signing Flow</h2>
-  <p>End-to-end flow for signing a Stellar transaction through MPCVault:</p>
-  <table class="flow-table">
-    <tr><th>Step</th><td><strong>Action</strong></td><td><strong>Detail</strong></td></tr>
-    <tr><td>1</td><td>Initiate</td><td>User creates transfer via MPCVault UI or API</td></tr>
-    <tr><td>2</td><td>Fetch State</td><td>Query Horizon (via QuickNode endpoint) for current sequence number and fee estimate</td></tr>
-    <tr><td>3</td><td>Build XDR</td><td>Construct transaction: <code>sourceAccount, seq+1, fee, timeBounds, ops[]</code></td></tr>
-    <tr><td>4</td><td>Compute Hash</td><td><code>SHA256(network_id || ENVELOPE_TYPE_TX || tx_body_xdr)</code></td></tr>
-    <tr><td>5</td><td>Approve</td><td>Policy engine evaluates vault approval rules (allowlists, limits, multi-party)</td></tr>
-    <tr><td>6</td><td>MPC Sign</td><td>3 parties produce partial EdDSA signatures; partials combined into one valid Ed25519 sig</td></tr>
-    <tr><td>7</td><td>Assemble</td><td>Wrap in <code>DecoratedSignature</code> (4-byte hint + 64-byte sig) &rarr; <code>TransactionEnvelope</code></td></tr>
-    <tr><td>8</td><td>Submit</td><td>POST to Horizon via QuickNode <code>/transactions</code>; await SCP finality (~5s)</td></tr>
-  </table>
+  <h2>5. Custom Transactions</h2>
+  <p>For advanced users and developers, MPCVault supports custom transaction submission &mdash; any protocol-compliant Stellar Classic or Soroban payload. Custom transactions still go through the full governance lifecycle: decode, policy check, simulation, approval, and MPC signing. This enables flexibility without bypassing security controls.</p>
 </section>
 
 <!-- ══════ 6. SECURITY ══════ -->
 <section>
-  <h2>6. Stellar-Specific Security</h2>
-  <table>
-    <tr><th>Threat</th><th>Stellar Mechanism</th><th>MPCVault Mitigation</th></tr>
-    <tr><td>Cross-chain replay</td><td>Network passphrase in signature base</td><td>Patented chain isolation + passphrase binding</td></tr>
-    <tr><td>Sequence desync</td><td>Strict +1 increment</td><td>Atomic sequence tracking; retry with fresh seq on failure</td></tr>
-    <tr><td>Signer compromise</td><td>Threshold weights on account</td><td>3-of-3 MPC; no single party holds complete key</td></tr>
-    <tr><td>Key share exposure</td><td>N/A (single-key model)</td><td>Periodic key refresh; TEE (SGX + SEV) runtime</td></tr>
-    <tr><td>Soroban resource exhaustion</td><td>Resource metering + simulation</td><td>Mandatory <code>simulateTransaction</code> before signing</td></tr>
-    <tr><td>Fee manipulation</td><td>Fee-bump transactions</td><td>QuickNode Horizon fee estimation; configurable fee caps</td></tr>
-  </table>
+  <h2>6. Security</h2>
+  <p>Key security properties of the integration:</p>
+  <ul>
+    <li><strong>No single point of key compromise</strong> &mdash; private keys are split across three shares and never reconstructed.</li>
+    <li><strong>Policy enforcement before signing</strong> &mdash; unauthorized transactions are rejected before the MPC ceremony begins.</li>
+    <li><strong>Cross-chain replay protection</strong> &mdash; Stellar's network passphrase binding is complemented by MPCVault's chain isolation.</li>
+    <li><strong>Transaction simulation</strong> &mdash; every transaction is simulated before signing to prevent unexpected outcomes.</li>
+    <li><strong>Asset controls</strong> &mdash; allowlists and denylists prevent exposure to malicious or unwanted tokens.</li>
+    <li><strong>Full audit trail</strong> &mdash; unified transaction history across Classic and Soroban with human-readable decoding.</li>
+  </ul>
 </section>
 
-<!-- ══════ 7. DELIVERABLE ROADMAP ══════ -->
-<section>
-  <h2>7. Deliverable Roadmap</h2>
-
-  <!-- TRANCHE 1 -->
-  <div class="tranche">
-    <div class="tranche-header">
-      <h3>Tranche 1 &mdash; MVP</h3>
-      <span>Deliverables 1&ndash;4</span>
-    </div>
-    <div class="tranche-body">
-      <div class="deliverable">
-        <h4><span class="d-label">D1</span> Native XLM Wallet Support via MPC Signing</h4>
-        <p>Stellar Ed25519 key generation and transaction signing through MPCVault's MPC infrastructure. Users create Stellar accounts, view XLM balances, and send/receive XLM natively.</p>
-        <p class="measure"><strong>Completion:</strong> Live demo of XLM account creation, balance display, and send/receive flow using MPC-distributed signing.</p>
-      </div>
-      <div class="deliverable">
-        <h4><span class="d-label">D2</span> Stellar Issued Asset &amp; Trustline Management</h4>
-        <p>Add, remove, and manage trustlines for Stellar-issued assets (USDC, yXLM, AQUA). Display issued asset balances alongside XLM. Send/receive with memo support (text, ID, hash, return).</p>
-        <p class="measure"><strong>Completion:</strong> Demo of trustline creation for 2+ assets, balance display, and issued asset transfer with memo field populated.</p>
-      </div>
-      <div class="deliverable">
-        <h4><span class="d-label">D3</span> Transaction History &amp; Price Feed</h4>
-        <p>Complete per-account transaction history (successful, pending, failed) via QuickNode Horizon endpoint. CoinGecko + on-chain price feeds for real-time USD valuations of XLM and major Stellar assets.</p>
-        <p class="measure"><strong>Completion:</strong> Transaction history with type/date filtering, plus real-time price display for 3+ Stellar assets.</p>
-      </div>
-      <div class="deliverable">
-        <h4><span class="d-label">D4</span> Transaction Simulation</h4>
-        <p>Preview transaction outcomes (estimated fees, balance changes, trustline effects) before MPC signing and submission. Leverages Stellar RPC simulation methods.</p>
-        <p class="measure"><strong>Completion:</strong> Demo of simulated preview with fee estimate and projected balance displayed before signing approval.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- TRANCHE 2 -->
-  <div class="tranche">
-    <div class="tranche-header">
-      <h3>Tranche 2 &mdash; Testnet</h3>
-      <span>Deliverables 5&ndash;8</span>
-    </div>
-    <div class="tranche-body">
-      <div class="deliverable">
-        <h4><span class="d-label">D5</span> MPCVault Policy Engine for Stellar</h4>
-        <p>Extend institutional policy controls: address allowlists, per-transaction and cumulative spending limits, multi-party approval workflows (e.g., 2-of-3). Policies enforced at the MPC signing layer &mdash; violations blocked before broadcast.</p>
-        <p class="measure"><strong>Completion:</strong> Testnet demo of (a) non-allowlisted address rejection, (b) spending limit block, (c) 2-of-3 approval completing after second approver signs.</p>
-      </div>
-      <div class="deliverable">
-        <h4><span class="d-label">D6</span> Wallet Plugin &mdash; Classic &amp; Soroban Signing</h4>
-        <p>MPCVault browser connector works with Stellar Classic signing (SEP-0007, Wallet SDK) and Soroban dApps. Supports simulate &rarr; approve &rarr; MPC sign workflow with policy gating on Soroban calls.</p>
-        <p class="measure"><strong>Completion:</strong> Demo of (a) connector signing a Classic tx from a third-party dApp on Testnet, and (b) a Soroban contract interaction completing the full flow.</p>
-      </div>
-      <div class="deliverable">
-        <h4><span class="d-label">D7</span> Automatic Asset Detection &amp; Display</h4>
-        <p>Auto-detect and display all Stellar assets via account balances and trustlines with no manual configuration. Dynamic updates as trustlines are added or removed.</p>
-        <p class="measure"><strong>Completion:</strong> Demo of a newly added trustline asset appearing automatically without user refresh or manual entry.</p>
-      </div>
-      <div class="deliverable">
-        <h4><span class="d-label">D8</span> Testnet Deployment &amp; Community Feedback</h4>
-        <p>Full feature set deployed on Stellar Testnet. Testable version shared with Stellar developer community on Discord. Testnet setup instructions published.</p>
-        <p class="measure"><strong>Completion:</strong> Public Testnet link shared in Stellar Dev Discord with setup instructions. One round of community feedback collected and documented.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- TRANCHE 3 -->
-  <div class="tranche">
-    <div class="tranche-header">
-      <h3>Tranche 3 &mdash; Mainnet</h3>
-      <span>Deliverables 9&ndash;12</span>
-    </div>
-    <div class="tranche-body">
-      <div class="deliverable">
-        <h4><span class="d-label">D9</span> Mainnet Production Deployment</h4>
-        <p>All Tranche 1 &amp; 2 features fully deployed on Stellar Mainnet. Production-grade infrastructure with monitoring, error handling, and failover. End-to-end validated with real XLM and issued assets.</p>
-        <p class="measure"><strong>Completion:</strong> Verifiable Mainnet transactions demonstrating full wallet functionality (send/receive, trustlines, simulation, policy-gated signing, Soroban).</p>
-      </div>
-      <div class="deliverable">
-        <h4><span class="d-label">D10</span> API Documentation &amp; Integration Guides</h4>
-        <p>Comprehensive developer docs for Stellar transaction building, signing, and submission via MPCVault (Classic &amp; Soroban). Integration guides for enterprises and developers.</p>
-        <p class="measure"><strong>Completion:</strong> Published documentation with API reference, quickstart guide, and 2+ integration tutorials (Classic + Soroban).</p>
-      </div>
-      <div class="deliverable">
-        <h4><span class="d-label">D11</span> UX Readiness &amp; Onboarding</h4>
-        <p>Onboarding flow for new Stellar wallets in MPCVault. Tested UI for all operations (send, receive, trustlines, policies). In-app guidance for Stellar-specific features (memos, trustlines, simulation).</p>
-        <p class="measure"><strong>Completion:</strong> Onboarding walkthrough video. Usability validation with 3+ institutional operators. Professional user testing results.</p>
-      </div>
-      <div class="deliverable">
-        <h4><span class="d-label">D12</span> Infrastructure &amp; Operational Readiness</h4>
-        <p>Production Horizon/RPC access via QuickNode managed endpoints, monitoring dashboards, alerting, and incident response procedures. 99.9% uptime target for Stellar signing operations.</p>
-        <p class="measure"><strong>Completion:</strong> Live monitoring dashboard screenshot. Documented incident response and operational runbook.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-</div><!-- /container -->
+</div>
 
 <footer>
   <div class="container">
